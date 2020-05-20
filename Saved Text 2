@@ -1,0 +1,56 @@
+Last login: Thu May  7 20:39:10 on ttys000
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+Tristans-MacBook-Pro:~ TristanYdrovo$ source myvenv/bin/activate
+-bash: myvenv/bin/activate: No such file or directory
+Tristans-MacBook-Pro:~ TristanYdrovo$ cd Desktop/
+Tristans-MacBook-Pro:Desktop TristanYdrovo$ source myvenv/bin/activate
+(myvenv) Tristans-MacBook-Pro:Desktop TristanYdrovo$ python
+Python 3.8.2 (v3.8.2:7b3ab5921f, Feb 24 2020, 17:52:18) 
+[Clang 6.0 (clang-600.0.57)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> exit()
+(myvenv) Tristans-MacBook-Pro:Desktop TristanYdrovo$ cd portfolio-project
+(myvenv) Tristans-MacBook-Pro:portfolio-project TristanYdrovo$ python manage.py runserver
+Performing system checks...
+
+Exception ignored in thread started by: <function check_errors.<locals>.wrapper at 0x107de9310>
+Traceback (most recent call last):
+  File "/Users/TristanYdrovo/Desktop/myvenv/lib/python3.8/site-packages/django/utils/autoreload.py", line 225, in wrapper
+    fn(*args, **kwargs)
+  File "/Users/TristanYdrovo/Desktop/myvenv/lib/python3.8/site-packages/django/core/management/commands/runserver.py", line 121, in inner_run
+    self.check(display_num_errors=True)
+  File "/Users/TristanYdrovo/Desktop/myvenv/lib/python3.8/site-packages/django/core/management/base.py", line 410, in check
+    raise SystemCheckError(msg)
+django.core.management.base.SystemCheckError: SystemCheckError: System check identified some issues:
+
+ERRORS:
+jobs.Job.image: (fields.E210) Cannot use ImageField because Pillow is not installed.
+	HINT: Get Pillow at https://pypi.python.org/pypi/Pillow or run command "pip install Pillow".
+
+System check identified 1 issue (0 silenced).
+^C(myvenv) Tristans-MacBook-Pro:portfolio-project TristanYdrovo$ pip install Pillow
+ERROR: Could not find a version that satisfies the requirement Pillllow (from versions: none)
+ERROR: No matching distribution found for Pillllow
+WARNING: You are using pip version 20.0.2; however, version 20.1 is available.
+You should consider upgrading via the '/Users/TristanYdrovo/Desktop/myvenv/bin/python -m pip install --upgrade pip' command.
+(myvenv) Tristans-MacBook-Pro:portfolio-project TristanYdrovo$ pip install Pillow
+Collecting Pillow
+  Using cached Pillow-7.1.2-cp38-cp38-macosx_10_10_x86_64.whl (2.2 MB)
+Installing collected packages: Pillow
+Successfully installed Pillow-7.1.2
+WARNING: You are using pip version 20.0.2; however, version 20.1 is available.
+You should consider upgrading via the '/Users/TristanYdrovo/Desktop/myvenv/bin/python -m pip install --upgrade pip' command.
+(myvenv) Tristans-MacBook-Pro:portfolio-project TristanYdrovo$ python manage.py runserver
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 08, 2020 - 20:52:17
+Django version 2.0.2, using settings 'portfolio.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+[08/May/2020 20:52:56] "GET /admin/jobs/job/add/ HTTP/1.1" 200 4449
+[08/May/2020 20:52:56] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+
